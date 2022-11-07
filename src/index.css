@@ -1,0 +1,9 @@
+.Container {
+    position: absolute;
+    display: flex;
+    min-height: max(100%, 100vh);
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    align-items: center;
+ }
