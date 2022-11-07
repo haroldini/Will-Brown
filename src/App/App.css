@@ -1,0 +1,369 @@
+@import url('https://fonts.googleapis.com/css?family=Sniglet');
+
+:root{
+    --white: #f3f3f3;
+    --black: #262626;
+    --grey: #afafaf;
+    --tertiary: #7a5bff;
+    --negative: #ff7777;
+}
+
+button:focus, input:focus {
+    outline: var(--tertiary) solid 2px;
+}
+
+.sliderButton {
+    margin: auto;
+}
+
+.sliderbox  {
+    position: relative;
+    display: inline-block;
+    width: 5rem;
+    height: 2.5rem;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer; 
+    background-color: var(--white);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 1.5rem;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+  
+.slider:before {
+    position: absolute;
+    content: '';
+    background-color: var(--black);
+    height: 2rem;
+    width: 2rem;
+    left: .25rem;
+    bottom: .25rem;
+    border-radius: 50%;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(2.5rem);
+    -ms-transform: translateX(2.5rem);
+    transform: translateX(2.5rem);
+}
+
+input:checked + .slider {
+    background-color: var(--tertiary);
+}
+
+.Subtext {
+    font-family: "Sniglet", sans-serif;
+    font-weight: 200;
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.Titletext {
+    font-family: "Sniglet", sans-serif;
+    font-weight: 900;
+    font-size: 2.0rem;
+    margin: 0;
+}
+
+body {
+    position: relative;
+    font-family: "Sniglet", sans-serif;
+    font-weight: 200;
+    background: var(--black);
+    color: var(--white);
+    width: 100%;
+    min-height: 100%;
+}
+
+html {
+    min-height: 100%;
+}
+
+.Header {
+    background: var(--black);
+    color: var(--white);
+    height: 4.5rem;
+    display: block;
+    border-bottom: solid 0.25rem var(--white);
+    width: 100%;
+}
+
+.Footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    min-height: 8rem;
+    padding-top:1rem;
+    border-top: solid 0.25rem var(--white);
+    background: var(--black);
+    color: var(--white);
+    font-weight: bold;
+}
+
+
+.Page {
+    background: var(--black);
+    color: var(--white);
+    box-shadow: -5rem 0px 0px 0px var(--white), 5rem 0px 0px 0px var(--white);
+    width: 100%;
+    max-width: 800px;
+    margin-left: 20%;
+    margin-right: 20%;
+    min-height: 100%;
+    padding-top: 1.5rem;
+    padding-bottom: 8rem;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
+
+/* Mobile/small screen support */
+@media only screen and (max-width: 600px) {
+    .Page {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+}
+
+.ActivePage {
+    background: var(--white) !important;
+    color: var(--black) !important;
+}
+
+.Component {
+    display: inline-block;
+    border: none;
+    color: var(--white);
+    background: var(--black);
+    width: 80%;
+    padding: 0.25rem;
+}
+
+.NoBorderTop {
+    border-top: none !important;
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+}
+
+.NoBorderBottom {
+
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+
+.Outline {
+    border: solid var(--white) 0.25rem;
+    border-radius: 1rem;
+}
+
+.CenterContent {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    word-wrap: break-word;
+    vertical-align: middle;
+}
+
+.DisplayFlex {
+    display: flex;
+}
+
+.PadVertical {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+.PadHorizontal {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+.MarginVertical {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+.MarignHorizontal {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.Input {
+    border: none;
+    color: var(--white);
+    background: var(--black);
+    width: 100%;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.InputHover {
+    transition: 0.2s background-color ease-in-out;
+    -webkit-transition:  0.2s background-color ease-in-out;
+    -moz-transition:  0.2s background-color ease-in-out;
+    -o-transition:  0.2s background-color ease-in-out;
+    -ms-transition: 0.2s background-color ease-in-out;
+    transition: 0.2s background-color ease-in-out; 
+}
+
+.InputHover:hover {
+    color: var(--white) !important;
+    background-color: var(--tertiary);
+    
+}
+.Textbutton{
+    cursor: pointer;
+    transition: .2s; transform: ease-in-out;
+}
+.Textbutton:hover {
+    color: var(--tertiary);
+    text-decoration: underline;
+}
+
+.Textstatus {
+    color: var(--negative);
+    text-decoration: underline;
+}
+
+.noneLeft:hover {
+    background-color: var(--negative);
+}
+
+.wobbleOnClick {
+    animation: wobble 0.1s linear;
+    animation-iteration-count: 2;
+
+}
+
+.FlashingBG {
+    animation: glowBG 3s infinite;
+}
+.FlashingBG:hover {
+    animation: none;
+    background-color: var(--tertiary);
+}
+
+.FlashingIcon {
+    animation: glowFG 3s infinite;
+}
+
+.Chart {
+    display: inline-block;
+    float: none;
+    width: 100%;
+    height: 30vh;
+    min-height: 200px;
+    max-height: 300px;
+    transition: none;
+    animation: none;
+}
+
+canvas {
+    box-sizing: content-box !important;
+    transition: none;
+    animation: none;
+}
+
+.Icons {
+    display: flex;
+    padding-left: 0.5rem;
+}
+
+.Icon {
+    float: center;
+    width: calc(100%/6);
+}
+
+.opposite-btn1, .opposite-btn2 {
+    cursor: pointer;
+}
+
+.sign-up, .forgot-login {
+    display: none;
+}
+
+
+a:link {
+    color: var(--white);
+    background-color: transparent;
+    text-decoration: none;
+}
+a:visited {
+color: var(--white);
+}
+a:active {
+color: var(--tertiary);
+background-color: transparent;
+text-decoration: none;
+}
+  
+.loader-wheel {
+    margin: auto;
+    margin-top: 30vh;
+    margin-bottom: 2rem;
+    animation: spin 0.7s infinite linear;
+    border: 0.5rem solid transparent;
+    border-left: 0.5rem solid #fff;
+    border-radius: 50%;
+    height: 5rem;
+    width: 5rem;
+    
+}
+
+@keyframes glowBG {
+  0% {
+        background: var(--black);
+  }
+  50% {
+        background: var(--tertiary);
+  }
+  100% {
+        background: var(--black);
+  }
+}
+
+@keyframes glowFG {
+    0% {
+        color: var(--white);
+    }
+    50% {
+        color: var(--tertiary);
+    }
+    100% {
+        color: var(--white);
+    }
+}
+
+@keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+}
+
+@keyframes wobble {
+    0% {
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(7deg);
+    }
+    50% {
+      transform: rotate(0deg);
+    }
+    75% {
+      transform: rotate(-7deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+}
+
