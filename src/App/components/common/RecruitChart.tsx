@@ -11,6 +11,7 @@ Chart.register(CategoryScale);
 type ChartProps = {
     recruit?: [string, number[], string]
     title? : string
+    showTitle?: boolean
     animationDuration: number
 }
 
@@ -36,18 +37,28 @@ export function getColor (rarity: string): string {
 export function RecruitChart (props: ChartProps) {
 
     // Default no data.
-    let name = ""
     let stats = [0, 0, 0, 0, 0, 0]
     let rarity = "common"
-    
-    // If recruit currently exists, get data, otherwise empty chart.
-    if (props.recruit) {
-        stats = props.recruit[1];
-        rarity = props.recruit[2];
-        if (props.title==undefined) {
-            name = props.recruit[0];
+
+    let name = "No Current Recruit"
+    let showTitle = true
+    if (props.showTitle!=undefined) {
+        console.log("showtitle is defined")
+        showTitle = props.showTitle
+    }
+    if (showTitle) {
+        if (props.title) {
+            name = props.title
+        } else if (props.recruit) {
+            name = props.recruit[0]
         }
     }
+
+    if (props.recruit) {
+        stats = props.recruit[1]
+        rarity = props.recruit[2]
+    }
+
 
     const chartData = {
         labels: ['Strength', 'Dexterity', 'Intelligence', 'Constitution', 'Wisdom', 'Charisma'],
@@ -138,11 +149,9 @@ export function RecruitChart (props: ChartProps) {
     return (
         <div className="PadVertical PadHorizontal" style={{'paddingRight': '1.3rem'}}>
             {
-                props.title
-                    ? props.title==""
-                        ? <h1 className="Titletext" id="statsName" style={{color: `${getColor(rarity)}`}}>{props.title}</h1>
-                        : <></>
-                    : <h1 className="Titletext" id="statsName" style={{color: `${getColor(rarity)}`}}>{name}</h1>
+                showTitle
+                    ? <h1 className="Titletext" id="statsName" style={{color: `${getColor(rarity)}`}}>{name}</h1>
+                    : <></>
             }
             <div className="Chart">
                 <Bar data={chartData} options={chartOptions} />

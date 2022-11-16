@@ -87,7 +87,7 @@ export const TeamList = (props: TeamListProps) => {
                                 </button>
                             </div>
                             <div className='Component Outline TeamListRecruitCharts' style={{"display":"none"}} id={"chart"+chartIds[i].toString()}>
-                                <RecruitChart recruit={[value.name, value.stats, value.rarity]} title="" animationDuration={0} />
+                                <RecruitChart recruit={[value.name, value.stats, value.rarity]} showTitle={false} animationDuration={0} />
                             </div>
                         </div>
 
